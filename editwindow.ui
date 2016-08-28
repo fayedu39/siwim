@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditWindow</class>
+ <widget class="QMainWindow" name="EditWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>804</width>
+    <height>467</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Siwim</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/journal.png</normaloff>:/journal.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,300">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMaximumSize</enum>
+    </property>
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
+      <property name="spacing">
+       <number>4</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetNoConstraint</enum>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTreeWidget" name="listView">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="headerHidden">
+         <bool>true</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="tipsLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>270</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&amp;lt;b&amp;gt;Gras&amp;lt;/b&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;&amp;lt;i&amp;gt;Italique&amp;lt;/i&amp;gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;&amp;lt;u&amp;gt;Souligné&amp;lt;/u&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&amp;lt;span style=&amp;quot;vertical-align:super;&amp;quot;&amp;gt;&lt;span style=&quot; vertical-align:super;&quot;&gt;exposant&lt;/span&gt;&amp;lt;/span&amp;gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;&amp;lt;span style=&amp;quot;color:red&amp;quot;&amp;gt;couleur&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;[[lien_vers_page]]&lt;br/&gt;[[lien]]((libellé))&lt;/p&gt;&lt;p&gt;Barre horizontale : ----&lt;/p&gt;&lt;hr/&gt;&lt;p&gt;Si ##body## est trouvé, ce qui est avant est mis en encart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>804</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuWiki">
+    <property name="title">
+     <string>&amp;Wiki</string>
+    </property>
+    <addaction name="actionOuvrir"/>
+    <addaction name="actionNouveau"/>
+    <addaction name="actionExporter_en_HTML"/>
+    <addaction name="actionGenIndex"/>
+   </widget>
+   <widget class="QMenu" name="menuAffichage">
+    <property name="title">
+     <string>&amp;Affichage</string>
+    </property>
+    <addaction name="actionAstuces"/>
+    <addaction name="actionListe_des_pages"/>
+   </widget>
+   <widget class="QMenu" name="menuA_propos">
+    <property name="title">
+     <string>À propos</string>
+    </property>
+    <addaction name="action_de_Qt"/>
+    <addaction name="action_de_Siwim"/>
+   </widget>
+   <addaction name="menuWiki"/>
+   <addaction name="menuAffichage"/>
+   <addaction name="menuA_propos"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNouveau">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Nouvelle page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOuvrir">
+   <property name="text">
+    <string>&amp;Ouvrir wiki</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionAstuces">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Astuces</string>
+   </property>
+  </action>
+  <action name="actionListe_des_pages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Liste des pages</string>
+   </property>
+  </action>
+  <action name="action_de_Qt">
+   <property name="text">
+    <string>...de Qt</string>
+   </property>
+  </action>
+  <action name="action_de_Siwim">
+   <property name="text">
+    <string>...de Siwim</string>
+   </property>
+  </action>
+  <action name="actionExporter_en_HTML">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Exporter en HTML</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionGenIndex">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Générer une page d'index</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionAstuces</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tipsLabel</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>EditWindow</receiver>
+   <slot>closeTab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>393</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNouveau</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>createPage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_de_Qt</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>aboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_de_Siwim</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOuvrir</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>openWiki()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExporter_en_HTML</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>exportWiki()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listView</sender>
+   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>EditWindow</receiver>
+   <slot>openPage(QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionGenIndex</sender>
+   <signal>triggered()</signal>
+   <receiver>EditWindow</receiver>
+   <slot>generateIndex()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionListe_des_pages</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>listView</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>136</x>
+     <y>105</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>closeTab(int)</slot>
+  <slot>openPage(QTreeWidgetItem*)</slot>
+  <slot>createPage()</slot>
+  <slot>about()</slot>
+  <slot>aboutQt()</slot>
+  <slot>openWiki()</slot>
+  <slot>newWiki()</slot>
+  <slot>exportWiki()</slot>
+  <slot>generateIndex()</slot>
+ </slots>
+</ui>

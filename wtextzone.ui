@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WTextZone</class>
+ <widget class="QWidget" name="WTextZone">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>474</width>
+    <height>363</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/journal.png</normaloff>:/journal.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>1</number>
+   </property>
+   <property name="leftMargin">
+    <number>1</number>
+   </property>
+   <property name="topMargin">
+    <number>1</number>
+   </property>
+   <property name="rightMargin">
+    <number>1</number>
+   </property>
+   <property name="bottomMargin">
+    <number>1</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="bar" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="viewButton">
+        <property name="toolTip">
+         <string>Enregister et voir (Ctrl+D)</string>
+        </property>
+        <property name="text">
+         <string>Enregister et &amp;voir</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/update.png</normaloff>:/update.png</iconset>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+D</string>
+        </property>
+        <property name="autoRepeat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="saveButton">
+        <property name="toolTip">
+         <string>Enregister (Ctrl+S)</string>
+        </property>
+        <property name="text">
+         <string>Enregi&amp;strer</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/save.png</normaloff>:/save.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+S</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="editButton">
+     <property name="toolTip">
+      <string>Editer (Ctrl+D)</string>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="icons.qrc">
+       <normaloff>:/notes.png</normaloff>:/notes.png</iconset>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+D</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextBrowser" name="formatedDisplay">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>editButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WTextZone</receiver>
+   <slot>editMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>15</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>viewButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WTextZone</receiver>
+   <slot>viewMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WTextZone</receiver>
+   <slot>saveText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>16</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>plainTextEdit</sender>
+   <signal>textChanged()</signal>
+   <receiver>WTextZone</receiver>
+   <slot>textChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>formatedDisplay</sender>
+   <signal>anchorClicked(QUrl)</signal>
+   <receiver>WTextZone</receiver>
+   <slot>linkClick(QUrl)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>editMode()</slot>
+  <slot>viewMode()</slot>
+  <slot>saveText()</slot>
+  <slot>textChanged()</slot>
+  <slot>linkClick(QUrl)</slot>
+ </slots>
+</ui>

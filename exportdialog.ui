@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>exportDialog</class>
+ <widget class="QDialog" name="exportDialog">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>212</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Options d'export</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QCheckBox" name="checkBoxNameTitle">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>341</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Afficher le nom du wiki dans le titre des pages</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="labelNom">
+      <property name="text">
+       <string>Nom du wiki (optionnel) :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEditNom"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxCategoriesLinks">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>341</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Afficher un lien vers les catégories des pages</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exportButton">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>170</y>
+     <width>101</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Exporter</string>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>170</y>
+     <width>92</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Annuler</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxNameTop">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>381</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Afficher le nom du wiki en haut des pages</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>371</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QCheckBox" name="checkBoxIndexLink">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>C'est un lien vers :</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditLinksPage">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>211</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>index</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditNom</tabstop>
+  <tabstop>checkBoxNameTitle</tabstop>
+  <tabstop>checkBoxCategoriesLinks</tabstop>
+  <tabstop>checkBoxNameTop</tabstop>
+  <tabstop>checkBoxIndexLink</tabstop>
+  <tabstop>lineEditLinksPage</tabstop>
+  <tabstop>cancelButton</tabstop>
+  <tabstop>exportButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>checkBoxIndexLink</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditLinksPage</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxNameTop</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>exportDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>225</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>105</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exportButton</sender>
+   <signal>clicked()</signal>
+   <receiver>exportDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>335</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>105</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
